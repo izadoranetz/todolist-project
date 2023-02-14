@@ -1,0 +1,15 @@
+@import '../globals.css';
+
+.header {
+    width: 100vw;
+    height: 20vh;
+    background-color: var(--gray-700);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+    
+}

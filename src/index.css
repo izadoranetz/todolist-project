@@ -1,0 +1,7 @@
+@import './globals.css';
+
+body {
+  margin: 0;
+  display: flex;
+  background: var(--gray-600);
+}
