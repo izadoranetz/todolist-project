@@ -2,8 +2,8 @@
 
 .header {
     width: 100vw;
-    height: 20vh;
-    background-color: var(--gray-700);
+    height: 200px;
+    background-color: var(--color-gray-700);
 
     display: flex;
     justify-content: center;
@@ -12,4 +12,8 @@
     margin: 0;
     padding: 0;
     
+}
+
+.header img {
+    position: absolute;
 }

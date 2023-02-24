@@ -1,10 +1,12 @@
-import Header from './components/Header';
+import { NewTask } from './NewTask';
+import Header from './Header';
 
 function App() {
 
   return (
     <>
     <Header />
+    <NewTask />
     </>
   )
 }

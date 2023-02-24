@@ -1,0 +1,23 @@
+@import '../../globals.css';
+
+.button {
+    background-color: var(--color-blueDark);
+    border-radius: 8px;
+    border: 0;
+
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: 14px;
+
+    padding: 16px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--color-blue);
+}
