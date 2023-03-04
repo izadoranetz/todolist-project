@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useState } from 'react';
+import styles from './Info.module.css';
 
 export function Created() {
-const [count, setCount] = useState(0);
+  const [countTasks, setcountTasks] = useState(0);
 
-    return (
-        <span>Tarefas Criadas {count}</span>
-    )
+  return (
+    <>
+      <span className={styles.legendaCriadas}>
+        Tarefas Criadas <span className={styles.contagem}>{countTasks}</span>
+      </span>
+    </>
+  );
 }

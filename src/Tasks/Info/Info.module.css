@@ -1,0 +1,17 @@
+@import '../../globals.css';
+
+.legendaCriadas {
+   color: var(--color-blue);
+}
+
+.legendaConcluidas {
+    color: var(--color-purple);
+ }
+
+.contagem {
+    background-color: var(--color-gray-400);
+    border-radius: 8px;
+    color: var(--color-white);
+    padding: 8px;
+    margin-left: 8px;
+}
