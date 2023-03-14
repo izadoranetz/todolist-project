@@ -1,0 +1,17 @@
+@import '../../globals.css';
+
+.container {
+  background-color: var(--color-gray-500);
+  width: 100%;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid var(--color-gray-400);
+
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  color: var(--color-gray-100);
+}

@@ -1,6 +1,7 @@
 import { Created } from './Info/Created';
 import { Done } from './Info/Done';
-import styles from './Info.module.css';
+import { List } from './List';
+import styles from './Tasks.module.css';
 
 export function Info() {
   return (
@@ -9,6 +10,9 @@ export function Info() {
         <Created />
         <Done />
       </header>
+      <section className={styles.list}>
+        <List />
+      </section>
     </div>
   );
 }

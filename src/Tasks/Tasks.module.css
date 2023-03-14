@@ -2,13 +2,14 @@
 
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 24px;
 
   width: 100%;
 
-  margin: 8vh 0;
+  margin-top: 64px;
 }
 
 .header {
@@ -24,4 +25,8 @@
   font-size: 14px;
   line-height: 17px;
   color: var(--color-white);
+}
+
+.list {
+  width: 50vw;
 }

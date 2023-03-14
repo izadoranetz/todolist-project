@@ -8,8 +8,8 @@
   gap: 8px;
 
   position: absolute;
-  width: 736px;
+  width: 50vw;
   height: 54px;
-  left: calc(50% - 736px / 2);
+  left: calc(50% - 50vw / 2);
   top: 173px;
 }
