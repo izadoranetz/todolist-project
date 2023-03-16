@@ -1,6 +1,11 @@
 @import '../../globals.css';
 
 .container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+
   background-color: var(--color-gray-500);
   width: 100%;
   border-radius: 8px;
@@ -14,4 +19,12 @@
   font-size: 14px;
   line-height: 140%;
   color: var(--color-gray-100);
+}
+.description {
+  flex: 1;
+}
+
+.done {
+  text-decoration: line-through;
+  color: var(--color-gray-300);
 }

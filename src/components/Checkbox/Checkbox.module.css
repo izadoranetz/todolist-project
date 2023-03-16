@@ -1,0 +1,37 @@
+@import '../../globals.css';
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+
+.checkbox:hover {
+    border: solid 1px var(--color-blueDark);
+    background-color: rgba(30, 111, 159, 0.2);
+}
+
+.unchecked {
+    border: solid 1px var(--color-blue);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: transparent;
+}
+
+.checked {
+    border: solid 1px var(--color-purpleDark);
+    background-color: var(--color-purpleDark);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checked:hover {
+    border: solid 1px var(--color-purple);
+    background-color: var(--color-purple);
+}
