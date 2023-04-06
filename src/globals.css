@@ -33,11 +33,10 @@
 }
 
 body {
-  background-color: var(--grey-900);
   color: var(--grey-300);
-  -webkit-font-smoothing: antialiased;
 }
 
 html, body, input, button {
   font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
