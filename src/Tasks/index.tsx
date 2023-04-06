@@ -1,3 +1,4 @@
+import { Empty } from './Empty';
 import { Created } from './Info/Created';
 import { Done } from './Info/Done';
 import { List } from './List';
@@ -11,7 +12,8 @@ export function Info() {
         <Done />
       </header>
       <section className={styles.list}>
-        <List />
+        {/* <List /> */}
+        <Empty />
       </section>
     </div>
   );

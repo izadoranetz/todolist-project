@@ -1,0 +1,29 @@
+@import '../../globals.css';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    gap: 1rem;
+
+    height: 40vh;
+
+
+    color: var(--color-gray-400);
+
+    border-top: 1px solid var(--color-gray-400);
+    border-radius: 8px;
+}
+
+.mensagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gray-300);
+    
+    font-size: 1rem;
+    line-height: 1.4;
+}
