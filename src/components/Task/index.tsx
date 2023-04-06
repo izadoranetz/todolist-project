@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Trash } from 'phosphor-react';
 import styles from './Task.module.css';
 import { Checkbox } from '../Checkbox';
+import { DeleteButton } from '../DeleteButton';
 
 interface TaskProps {
   description: string;
@@ -18,7 +18,7 @@ export function Task({ description }: TaskProps) {
     <div className={styles.container}>
       <Checkbox onChange={handleCheckboxChange} />
       <p className={`${styles.description} ${isChecked ? styles.done : ''}`}>{description}</p>
-      <Trash />
+      <DeleteButton />
     </div>
   );
 }

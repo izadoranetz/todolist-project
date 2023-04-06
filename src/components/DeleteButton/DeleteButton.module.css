@@ -1,0 +1,22 @@
+@import '../../globals.css';
+
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-gray-300);
+    background-color: var(--color-gray-800);
+    border: 0;
+    width: 24px;
+    height: 24px;
+
+    cursor: pointer;
+}
+
+.button:hover {
+    color: var(--color-danger);
+    background-color: var(--color-gray-400);
+    border-radius: 4px;
+}
