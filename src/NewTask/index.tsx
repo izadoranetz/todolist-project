@@ -12,8 +12,10 @@ export function NewTask({ onAddTask }: NewTaskProps) {
   const [newTask, setNewTask] = useState<string>('');
 
   function handleAddTask() {
-    onAddTask(newTask);
-    setNewTask('');
+    if (newTask.trim()) { 
+      onAddTask(newTask);
+      setNewTask('');
+    }
   }
 
   return (
