@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   padding: 0px;
   gap: 12px;
+  width: 100%;
 }

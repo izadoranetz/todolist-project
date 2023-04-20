@@ -1,8 +1,13 @@
 import { PlusCircle } from 'phosphor-react';
 import styles from './Button.module.css';
 
-export function Button () {
+interface ButtonProps {
+  onClick: () => void;
+}
+
+export function Button({ onClick }: React.PropsWithChildren<ButtonProps>) {
   return (
-    <button type="submit" className={styles.button}>Criar <PlusCircle size={16} /></button>
-  )
-} 
+    <button type="button" onClick={onClick} className={styles.button}><PlusCircle size={16} />
+    </button>
+  );
+}

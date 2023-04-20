@@ -4,7 +4,11 @@ import { Done } from './Info/Done';
 import { List } from './List';
 import styles from './Tasks.module.css';
 
-export function Info() {
+interface Props {
+  taskList: string[];
+}
+
+export function Info({ taskList }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -12,8 +16,11 @@ export function Info() {
         <Done />
       </header>
       <section className={styles.list}>
-        {/* <List /> */}
-        <Empty />
+        {taskList.length > 0 ? (
+          <List taskList={taskList} />
+        ) : (
+          <Empty />
+        )}
       </section>
     </div>
   );

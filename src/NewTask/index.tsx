@@ -1,12 +1,26 @@
-import { Button } from "../components/Button";
-import { Input } from "../components/Input";
-import styles from './NewTask.module.css';
+import { useState } from 'react';
 
-export function NewTask() {
-    return (
-        <div className={styles.container}>
-            <Input />
-            <Button />
-        </div>
-    )
+import styles from './NewTask.module.css';
+import { Input } from '../components/Input';
+import { Button } from '../components/Button';
+
+interface NewTaskProps {
+  onAddTask: (newTask: string) => void;
 }
+
+export function NewTask({ onAddTask }: NewTaskProps) {
+  const [newTask, setNewTask] = useState<string>('');
+
+  function handleAddTask() {
+    onAddTask(newTask);
+    setNewTask('');
+  }
+
+  return (
+    <div className={styles.container}>
+      <Input value={newTask} onChange={(event) => setNewTask(event.target.value)} />
+      <Button onClick={handleAddTask} />
+    </div>
+  )
+}
+
