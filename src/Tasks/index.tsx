@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Empty } from './Empty';
 import { Created } from './Info/Created';
 import { Done } from './Info/Done';
@@ -8,16 +9,26 @@ interface Props {
   taskList: string[];
 }
 
-export function Info({ taskList }: Props) {
+export function Tasks({ taskList }: Props) {
+  const [countTasks, setCountTasks] = useState(taskList.length);
+
+  const handleTaskCreate = () => {
+    setCountTasks(prevCount => prevCount + 1);
+  };
+
+  useEffect(() => {
+    setCountTasks(taskList.length);
+  }, [taskList]);
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Created />
-        <Done />
+        <Created tasksNumber={countTasks} />
+        <Done tasksNumber={countTasks} />
       </header>
       <section className={styles.list}>
         {taskList.length > 0 ? (
-          <List taskList={taskList} />
+          <List taskList={taskList} onCreate={handleTaskCreate} />
         ) : (
           <Empty />
         )}
@@ -25,3 +36,5 @@ export function Info({ taskList }: Props) {
     </div>
   );
 }
+
+

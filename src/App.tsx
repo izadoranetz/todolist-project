@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NewTask } from './NewTask';
 import Header from './Header';
-import { Info } from './Tasks';
+import { Tasks } from './Tasks';
 
 function App() {
   const [taskList, setTaskList] = useState<string[]>([]);
@@ -13,7 +13,7 @@ function App() {
     <>
       <Header />
       <NewTask onAddTask={handleNewTask} />
-      <Info taskList={taskList} />
+      <Tasks taskList={taskList} />
     </>
   )
 }
