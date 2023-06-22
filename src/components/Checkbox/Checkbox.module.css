@@ -7,7 +7,6 @@
     cursor: pointer;
 }
 
-
 .checkbox:hover {
     border: solid 1px var(--color-blueDark);
     background-color: rgba(30, 111, 159, 0.2);

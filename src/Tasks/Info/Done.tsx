@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Info.module.css';
 
 interface DoneProps {
   tasksNumber: number;
+  countDone: number;
 }
 
-export function Done({tasksNumber}:DoneProps) {
-  const [countDone, setCountDone] = useState(0);
+export function Done({tasksNumber, countDone}:DoneProps) {
   
   return (
     <span className={styles.legendaConcluidas}>
