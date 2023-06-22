@@ -3,23 +3,25 @@ import styles from './Checkbox.module.css';
 import { useState } from 'react';
 
 interface CheckboxProps {
-    onChange: (isChecked: boolean) => void;
-  }
-  
-  export function Checkbox({ onChange }: CheckboxProps) {
-    const [isChecked, setIsChecked] = useState(false);
-  
-    const handleCheckboxClick = () => {
-      const newChecked = !isChecked;
-      setIsChecked(newChecked);
-      onChange(newChecked);
-    };
+  onChange: (isChecked: boolean) => void;
+  isChecked: boolean;
+}
+
+export function Checkbox({ onChange, isChecked }: CheckboxProps) {
+  const [checked, setChecked] = useState(isChecked);
+
+  const handleCheckboxClick = () => {
+    const newChecked = !checked;
+    setChecked(newChecked);
+    onChange(newChecked);
+  };
 
   return (
-    <>
-       <div className={`${styles.checkbox} ${isChecked ? styles.checked : styles.unchecked}`} onClick={handleCheckboxClick}>
-        <Check size={12} />
-      </div>
-    </>
+    <div
+      className={`${styles.checkbox} ${checked ? styles.checked : styles.unchecked}`}
+      onClick={handleCheckboxClick}
+    >
+      <Check size={12} />
+    </div>
   );
 }

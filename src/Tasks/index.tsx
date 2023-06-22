@@ -7,19 +7,32 @@ import styles from './Tasks.module.css';
 
 interface Props {
   taskList: string[];
+  
 }
 
 export function Tasks({ taskList }: Props) {
   const [countTasks, setCountTasks] = useState(taskList.length);
   const [countDone, setCountDone] = useState(0);
 
-  const handleTaskComplete = () => {
-    setCountDone((prevCount) => prevCount + 1);
-  };
-
   const handleTaskCreate = () => {
     setCountTasks((prevCount) => prevCount + 1);
   };
+
+
+  const handleTaskComplete = (isChecked: boolean) => {
+    if (isChecked) {
+      setCountDone((prevCount) => prevCount + 1);
+    } else {
+      setCountDone((prevCount) => prevCount - 1);
+    }
+  };
+  
+
+  const handleTaskRemove = (index: number) => { 
+    const updatedTaskList = [...taskList];
+    updatedTaskList.splice(index, 1);
+    setCountTasks(updatedTaskList.length);
+  }
 
   useEffect(() => {
     setCountTasks(taskList.length);
@@ -33,7 +46,11 @@ export function Tasks({ taskList }: Props) {
       </header>
       <section className={styles.list}>
         {taskList.length > 0 ? (
-          <List taskList={taskList} onCreate={handleTaskCreate} onTaskComplete={handleTaskComplete} />
+         <List
+            taskList={taskList}
+            onCreate={handleTaskCreate}
+            onTaskComplete={handleTaskComplete}
+            onTaskRemove={handleTaskRemove} isChecked={false}       />
         ) : (
           <Empty />
         )}

@@ -5,25 +5,29 @@ import { DeleteButton } from '../DeleteButton';
 
 interface TaskProps {
   description: string;
-  onRemove: () => void;
-  onTaskComplete: () => void;
+  onRemove: (index: number) => void;
+  onTaskComplete: (newChecked: boolean) => void;
+  index: number;
+  isChecked: boolean;
 }
 
-export function Task({ description, onRemove, onTaskComplete  }: TaskProps) {
+export function Task({ description, onRemove, onTaskComplete, index }: TaskProps) {
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleCheckboxChange = (isChecked: boolean) => {
-    setIsChecked(isChecked);
-    if (isChecked) {
-      onTaskComplete();
-    }
+  const handleChange = (newChecked: boolean) => {
+    setIsChecked(newChecked);
+    onTaskComplete(newChecked);
+  };
+
+  const handleRemove = () => {
+    onRemove(index);
   };
 
   return (
     <div className={styles.container}>
-      <Checkbox onChange={handleCheckboxChange}/>
+      <Checkbox onChange={handleChange} isChecked={isChecked} />
       <p className={`${styles.description} ${isChecked ? styles.done : ''}`}>{description}</p>
-      <DeleteButton onClick={onRemove} />
+      <DeleteButton onClick={handleRemove} />
     </div>
   );
 }
