@@ -1,22 +1,19 @@
+import { useEffect } from 'react';
 import { TaskItem } from '..';
 import { Task } from '../../components/Task';
 import styles from './List.module.css';
 
 interface ListProps {
   taskList: TaskItem[];
-  onCreate: () => void;
   onTaskComplete: (newChecked: boolean) => void;
   onTaskRemove: (id: string) => void;
-  isChecked: boolean;
 }
 
-export function List({
-  taskList,
-  onCreate,
-  onTaskComplete,
-  onTaskRemove,
-  isChecked
-}: ListProps) {
+export function List({ taskList, onTaskComplete, onTaskRemove }: ListProps) {
+  const handleRemove = (id: string) => {
+    onTaskRemove(id);
+  };
+
   return (
     <div className={styles.container}>
       {taskList.map((task) => (
@@ -24,9 +21,9 @@ export function List({
           key={task.id}
           description={task.description}
           id={task.id}
-          onRemove={onTaskRemove}
+          onRemove={handleRemove}
           onTaskComplete={onTaskComplete}
-          isChecked={isChecked}
+          isCheckedProp={task.isChecked}
         />
       ))}
     </div>

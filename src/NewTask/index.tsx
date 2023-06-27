@@ -6,7 +6,7 @@ import { Button } from '../components/Button';
 import { v4 as uuidv4 } from 'uuid';
 
 interface NewTaskProps {
-  onAddTask: (newTask: { description: string; id: string }) => void;
+  onAddTask: (newTask: { description: string; id: string, isChecked: boolean }) => void;
 }
 
 export function NewTask({ onAddTask }: NewTaskProps) {
@@ -18,6 +18,7 @@ export function NewTask({ onAddTask }: NewTaskProps) {
       const task = {
         description: newTask,
         id: id,
+        isChecked: false,
       };
       onAddTask(task);
       setNewTask('');

@@ -8,11 +8,11 @@ interface TaskProps {
   onRemove: (id: string) => void;
   onTaskComplete: (newChecked: boolean) => void;
   id: string;
-  isChecked: boolean;
+  isCheckedProp: boolean;
 }
 
-export function Task({ description, onRemove, onTaskComplete, id }: TaskProps) {
-  const [isChecked, setIsChecked] = useState(false);
+export function Task({ description, onRemove, onTaskComplete, id, isCheckedProp }: TaskProps) {
+  const [isChecked, setIsChecked] = useState(isCheckedProp);
 
   const handleChange = (newChecked: boolean) => {
     setIsChecked(newChecked);

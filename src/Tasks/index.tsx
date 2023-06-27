@@ -8,37 +8,32 @@ import styles from './Tasks.module.css';
 export interface TaskItem {
   id: string;
   description: string;
+  isChecked: boolean;
 }
 
 interface Props {
   taskList: TaskItem[];
+  onTaskListChange: (updatedTaskList: TaskItem[]) => void;
 }
 
-export function Tasks({ taskList }: Props) {
-  // const q cria as tarefa individual
-  // inclue o obj tarefa dentro do array de tarefas
+export function Tasks({ taskList, onTaskListChange }: Props) {
   const [countTasks, setCountTasks] = useState(taskList.length);
   const [countDone, setCountDone] = useState(0);
 
-  const handleTaskCreate = () => {
-    setCountTasks((prevCount) => prevCount + 1);
-    console.log(taskList)
-  };
 
-
-  const handleTaskComplete = (isChecked: boolean) => {
-    if (isChecked) {
+  const handleTaskComplete = (newChecked: boolean) => {
+    if (newChecked) {
       setCountDone((prevCount) => prevCount + 1);
     } else {
       setCountDone((prevCount) => prevCount - 1);
     }
   };
-  
 
-  const handleTaskRemove = (index: string) => { 
-    const updatedTaskList = [...taskList];
+  const handleTaskRemove = (id: string) => {
+    const updatedTaskList = taskList.filter((task) => task.id !== id);
+    onTaskListChange(updatedTaskList);
     setCountTasks(updatedTaskList.length);
-  }
+  };
 
   useEffect(() => {
     setCountTasks(taskList.length);
@@ -52,11 +47,11 @@ export function Tasks({ taskList }: Props) {
       </header>
       <section className={styles.list}>
         {taskList.length > 0 ? (
-         <List
+          <List
             taskList={taskList}
-            onCreate={handleTaskCreate}
             onTaskComplete={handleTaskComplete}
-            onTaskRemove={handleTaskRemove} isChecked={false}       />
+            onTaskRemove={handleTaskRemove}
+          />
         ) : (
           <Empty />
         )}
