@@ -1,13 +1,15 @@
+import { TaskItem } from '..';
 import { Task } from '../../components/Task';
 import styles from './List.module.css';
 
 interface ListProps {
-  taskList: string[];
+  taskList: TaskItem[];
   onCreate: () => void;
   onTaskComplete: (newChecked: boolean) => void;
-  onTaskRemove: (index: number) => void;
+  onTaskRemove: (id: string) => void;
   isChecked: boolean;
 }
+
 export function List({
   taskList,
   onCreate,
@@ -17,15 +19,15 @@ export function List({
 }: ListProps) {
   return (
     <div className={styles.container}>
-      {taskList.map((task, index) => (
+      {taskList.map((task) => (
         <Task
-        key={index}
-        description={task}
-        index={index}
-        onRemove={onTaskRemove}
-        onTaskComplete={onTaskComplete}
-        isChecked={isChecked} // Passa o estado atual do Checkbox
-      />
+          key={task.id}
+          description={task.description}
+          id={task.id}
+          onRemove={onTaskRemove}
+          onTaskComplete={onTaskComplete}
+          isChecked={isChecked}
+        />
       ))}
     </div>
   );

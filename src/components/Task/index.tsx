@@ -5,13 +5,13 @@ import { DeleteButton } from '../DeleteButton';
 
 interface TaskProps {
   description: string;
-  onRemove: (index: number) => void;
+  onRemove: (id: string) => void;
   onTaskComplete: (newChecked: boolean) => void;
-  index: number;
+  id: string;
   isChecked: boolean;
 }
 
-export function Task({ description, onRemove, onTaskComplete, index }: TaskProps) {
+export function Task({ description, onRemove, onTaskComplete, id }: TaskProps) {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleChange = (newChecked: boolean) => {
@@ -20,7 +20,7 @@ export function Task({ description, onRemove, onTaskComplete, index }: TaskProps
   };
 
   const handleRemove = () => {
-    onRemove(index);
+    onRemove(id);
   };
 
   return (

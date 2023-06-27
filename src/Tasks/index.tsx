@@ -5,17 +5,24 @@ import { Done } from './Info/Done';
 import { List } from './List';
 import styles from './Tasks.module.css';
 
+export interface TaskItem {
+  id: string;
+  description: string;
+}
+
 interface Props {
-  taskList: string[];
-  
+  taskList: TaskItem[];
 }
 
 export function Tasks({ taskList }: Props) {
+  // const q cria as tarefa individual
+  // inclue o obj tarefa dentro do array de tarefas
   const [countTasks, setCountTasks] = useState(taskList.length);
   const [countDone, setCountDone] = useState(0);
 
   const handleTaskCreate = () => {
     setCountTasks((prevCount) => prevCount + 1);
+    console.log(taskList)
   };
 
 
@@ -28,9 +35,8 @@ export function Tasks({ taskList }: Props) {
   };
   
 
-  const handleTaskRemove = (index: number) => { 
+  const handleTaskRemove = (index: string) => { 
     const updatedTaskList = [...taskList];
-    updatedTaskList.splice(index, 1);
     setCountTasks(updatedTaskList.length);
   }
 
