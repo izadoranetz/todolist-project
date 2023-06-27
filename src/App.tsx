@@ -3,11 +3,18 @@ import { NewTask } from './NewTask';
 import Header from './Header';
 import { Tasks } from './Tasks';
 
-function App() {
-  const [taskList, setTaskList] = useState<string[]>([]);
+interface TaskItem {
+  id: string;
+  description: string;
+}
 
-  function handleNewTask(task: string) {
-    setTaskList([...taskList, task]);
+function App() {
+  const [taskList, setTaskList] = useState<TaskItem[]>([]);
+
+  function handleNewTask(task: TaskItem) {
+    setTaskList(prevTaskList => [...prevTaskList, task]);
+
+    console.log([...taskList, task]);
   }
   return (
     <>

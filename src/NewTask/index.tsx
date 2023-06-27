@@ -6,12 +6,7 @@ import { Button } from '../components/Button';
 import { v4 as uuidv4 } from 'uuid';
 
 interface NewTaskProps {
-  onAddTask: (newTask: string) => void;
-}
-
-interface NewTask {
-  description: string;
-  id: string;
+  onAddTask: (newTask: { description: string; id: string }) => void;
 }
 
 export function NewTask({ onAddTask }: NewTaskProps) {
@@ -20,13 +15,12 @@ export function NewTask({ onAddTask }: NewTaskProps) {
   function handleAddTask() {
     if (newTask.trim()) { 
       const id = uuidv4();
-      const task: NewTask = {
+      const task = {
         description: newTask,
         id: id,
       };
-      onAddTask(newTask);
+      onAddTask(task);
       setNewTask('');
-      console.log(task)
     }
   }
 
@@ -35,6 +29,5 @@ export function NewTask({ onAddTask }: NewTaskProps) {
       <Input value={newTask} onChange={(event) => setNewTask(event.target.value)} />
       <Button onClick={handleAddTask} />
     </div>
-  )
+  );
 }
-
